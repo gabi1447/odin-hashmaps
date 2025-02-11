@@ -1,3 +1,5 @@
+import { linkedList } from "./linkedList";
+
 function HashMap() {
     const LoadFactor = 0.8;
     let capacity = 16;
