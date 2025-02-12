@@ -1,0 +1,21 @@
+{
+    "name": "odin-hashmaps",
+    "version": "1.0.0",
+    "description": "",
+    "main": "hashMap.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/gabi1447/odin-hashmaps.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "type": "module",
+    "bugs": {
+        "url": "https://github.com/gabi1447/odin-hashmaps/issues"
+    },
+    "homepage": "https://github.com/gabi1447/odin-hashmaps#readme"
+}
