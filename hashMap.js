@@ -84,7 +84,9 @@ function HashMap() {
         } else if (modifyValueIfKeyPresent(key, value, buckets[bucketIndex])) {
             return;
         }
-
+        if (buckets[bucketIndex].getSize() === 0) {
+            numOfBuckets++;
+        }
         buckets[bucketIndex].append(keyValuePair);
         incrementNumOfKeysByOne();
         increaseHashTable();
