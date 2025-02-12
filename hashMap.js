@@ -23,6 +23,25 @@ function HashMap() {
         capacity = length;
     }
 
+    function has(key) {
+        const bucketIndexOfKey = hash(key);
+        const bucket = buckets[bucketIndexOfKey];
+
+        if (bucket === undefined) {
+            return false;
+        }
+
+        let currentNode = bucket.getHead();
+        while (currentNode !== null) {
+            if (key in currentNode.value) {
+                return true;
+            }
+            currentNode = currentNode.next;
+        }
+
+        return false;
+    }
+
     function get(key) {
         const bucketIndexOfKey = hash(key);
         const bucket = buckets[bucketIndexOfKey];
@@ -117,6 +136,7 @@ function HashMap() {
 
     return {
         getHashTable,
+        has,
         get,
         set,
     };
