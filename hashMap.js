@@ -15,6 +15,14 @@ function HashMap() {
         numOfKeys++;
     }
 
+    function getNumOfBuckets() {
+        return numOfBuckets;
+    }
+
+    function length() {
+        return numOfKeys;
+    }
+
     function getHashTable() {
         return buckets;
     }
@@ -135,6 +143,10 @@ function HashMap() {
         while (currentNode !== null) {
             if (key in currentNode.value) {
                 bucket.removeAt(currentIndex);
+                numOfKeys--;
+                if (bucket.getSize() === 0) {
+                    numOfBuckets--;
+                }
                 return true;
             }
             currentIndex++;
@@ -155,6 +167,8 @@ function HashMap() {
 
     return {
         getHashTable,
+        length,
+        getNumOfBuckets,
         has,
         get,
         set,
