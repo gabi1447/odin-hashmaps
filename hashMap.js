@@ -122,6 +122,25 @@ function HashMap() {
         return numOfBuckets >= maxValue ? true : false;
     }
 
+    function remove(key) {
+        if (!has(key)) {
+            return false;
+        }
+
+        const bucketIndex = hash(key);
+        const bucket = buckets[bucketIndex];
+        let currentNode = bucket.getHead();
+        let currentIndex = 0;
+
+        while (currentNode !== null) {
+            if (key in currentNode.value) {
+                bucket.removeAt(currentIndex);
+                return true;
+            }
+            currentIndex++;
+        }
+    }
+
     function hash(key) {
         let hashCode = 0;
 
@@ -139,5 +158,6 @@ function HashMap() {
         has,
         get,
         set,
+        remove,
     };
 }
