@@ -155,6 +155,14 @@ function HashMap() {
         }
     }
 
+    function clear() {
+        capacity = 16;
+        numOfBuckets = 0;
+        numOfKeys = 0;
+        const restoredArray = new Array(capacity);
+        buckets = restoredArray;
+    }
+
     function hash(key) {
         let hashCode = 0;
 
@@ -175,5 +183,6 @@ function HashMap() {
         get,
         set,
         remove,
+        clear,
     };
 }
