@@ -163,6 +163,24 @@ function HashMap() {
         buckets = restoredArray;
     }
 
+    function keys() {
+        let arrayOfKeys = [];
+        for (let bucket of buckets) {
+            if (!bucket) {
+                continue;
+            }
+            const head = bucket.getHead();
+            let currentNode = head;
+            while (currentNode !== null) {
+                const key = Object.keys(currentNode.value)[0];
+                arrayOfKeys.push(key);
+                currentNode = currentNode.next;
+            }
+        }
+
+        return arrayOfKeys;
+    }
+
     function hash(key) {
         let hashCode = 0;
 
@@ -184,5 +202,6 @@ function HashMap() {
         set,
         remove,
         clear,
+        keys,
     };
 }
