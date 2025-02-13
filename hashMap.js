@@ -201,6 +201,21 @@ function HashMap() {
         return arrayOfValues;
     }
 
+    function entries() {
+        const arrayOfKeys = keys();
+        const arrayOfValues = values();
+        const arrayOfKeyValuePairs = [];
+
+        for (let i = 0; i < arrayOfKeys.length; i++) {
+            const keyValuePairArray = [];
+            keyValuePairArray.push(arrayOfKeys[i]);
+            keyValuePairArray.push(arrayOfValues[i]);
+            arrayOfKeyValuePairs.push(keyValuePairArray);
+        }
+
+        return arrayOfKeyValuePairs;
+    }
+
     function hash(key) {
         let hashCode = 0;
 
@@ -224,5 +239,6 @@ function HashMap() {
         clear,
         keys,
         values,
+        entries,
     };
 }
