@@ -1,11 +1,15 @@
 import { linkedList } from "./linkedList.js";
 
-function HashMap() {
-    const LoadFactor = 0.8;
+export function HashMap() {
+    const LoadFactor = 0.75;
     let capacity = 16;
     let buckets = new Array(capacity);
     let numOfBuckets = 0;
     let numOfKeys = 0;
+
+    function getCapacity() {
+        return capacity;
+    }
 
     function incrementNumOfBucketsByOne() {
         numOfBuckets++;
@@ -127,9 +131,8 @@ function HashMap() {
     }
 
     function shouldWeIncreaseSizeOfHashTable() {
-        const maxValue = Math.round(LoadFactor * capacity);
-
-        return numOfBuckets >= maxValue ? true : false;
+        const currentLoadLevel = numOfBuckets / capacity;
+        return currentLoadLevel >= LoadFactor ? true : false;
     }
 
     function remove(key) {
@@ -230,6 +233,7 @@ function HashMap() {
 
     return {
         getHashTable,
+        getCapacity,
         length,
         getNumOfBuckets,
         has,
