@@ -181,6 +181,26 @@ function HashMap() {
         return arrayOfKeys;
     }
 
+    function values() {
+        let arrayOfValues = [];
+        for (let bucket of buckets) {
+            if (!bucket) {
+                continue;
+            }
+            const head = bucket.getHead();
+            let currentNode = head;
+            while (currentNode !== null) {
+                const object = currentNode.value;
+                const key = Object.keys(object)[0];
+                const value = object[key];
+                arrayOfValues.push(value);
+                currentNode = currentNode.next;
+            }
+        }
+
+        return arrayOfValues;
+    }
+
     function hash(key) {
         let hashCode = 0;
 
@@ -203,5 +223,6 @@ function HashMap() {
         remove,
         clear,
         keys,
+        values,
     };
 }
